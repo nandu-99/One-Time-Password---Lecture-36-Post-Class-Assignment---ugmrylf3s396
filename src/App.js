@@ -1,5 +1,12 @@
+import React from 'react';
+import OTPButton from './otp';
+
 function App() {
-  return <button id="otpButton">Send OTP</button>;
+  return (
+    <div>
+      <OTPButton />
+    </div>
+  );
 }
 
 export default App;
