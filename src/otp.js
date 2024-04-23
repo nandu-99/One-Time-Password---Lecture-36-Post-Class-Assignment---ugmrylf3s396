@@ -8,16 +8,17 @@ function OTPButton() {
     setDisabled(true);
 
     const timer = setInterval(() => {
-      setCountdown(prevCountdown => prevCountdown - 1);
-    }, 1000);
-
-    setTimeout(() => {
-      clearInterval(timer);
-      setDisabled(false);
-      setCountdown(5);
-    }, 5000);
-  };
-
+        setCountdown(prevCountdown => {
+          if (prevCountdown === 0) {
+            clearInterval(timer);
+            setDisabled(false);
+            return 5;
+          } else {
+            return prevCountdown - 1;
+          }
+        });
+      }, 1000);
+    };
   return (
     <button
       id="otpButton"
